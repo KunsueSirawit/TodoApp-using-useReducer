@@ -1,0 +1,27 @@
+import { Context } from "../App";
+import { useContext } from "react";
+
+import { RiDeleteBin5Line } from "react-icons/ri";
+
+const Todolist = ({ items }) => {
+
+   const dispatch  = useContext(Context)
+
+  return (
+    <>
+      {(items.todos).map((item,index) => {
+        return (
+          <div key={index} className="todo-list">
+            <h3> {item}</h3>
+            <div className="button-contianer">
+              {/* <h3>{item.id}</h3> */}
+              <RiDeleteBin5Line onClick={()=> dispatch ({ type : 'delete' , payload : item.id})}> Delete </RiDeleteBin5Line>
+            </div>
+          </div>
+        );
+      })}
+    </>
+  );
+};
+
+export default Todolist;

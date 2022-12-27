@@ -1,11 +1,106 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+*{
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body{
+  font-family: 'Nunito', sans-serif;
+  background-color: rgb(201, 234, 248);
+  height: 90vh;
 }
+
+.Containner {
+  background-color: rgb(240, 248, 248);
+  text-align: center;
+  text-justify: center;
+  height: 14.2em;
+  width: 30rem;
+  margin: 5rem auto;
+  box-shadow: 0rem 0.2rem 1px rgb(234, 244, 247);
+  border-radius: .2em;
+}
+
+h1{
+  font-size: 4rem;
+  color:rgb(222, 232, 248);
+  text-shadow: 2px 2px 2px #ced6ed;
+  padding-top: 0.8rem;
+  background-image: linear-gradient(306deg ,rgb(0, 140, 255) , rgb(79, 223, 255));
+}
+
+.todo-list{
+  font-size: .7rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: .09rem 5rem;
+  background-color:  rgb(240, 248, 248);
+  box-shadow: 0rem 0.2rem 0.4px rgb(192, 220, 229);
+  height: 6em;
+  margin-bottom: -1.7em;
+  color: #3a3a3a;
+}
+
+
+.todo-list:hover{
+  transition: transform .05s;
+  transform: scale(1.05);
+  border-color: rgb(237, 223, 72);
+  border-left-style: solid;
+  border-width: 1.2em;
+}
+
+input{
+  text-align: center;
+  width: 15rem;
+  height: 2rem;
+  border-radius: 2rem;
+  border: 0.09rem solid black;
+}
+
+button{
+  /* opacity: 15rem; */
+  width: 2rem;
+  height: 2rem;
+  border-radius: 100%;
+  /* border: none; */
+  font-size: 1.5rem;
+  text-align: center;
+  position: absolute;
+  left: 21rem;
+  border: 0.09rem solid black;
+}
+
+button:hover{
+  cursor : pointer;
+  background-color: rgb(255, 242, 127);
+  color: rgb(0, 0, 0);
+}
+
+.button-contianer{
+  font-size: 1.05rem;
+  margin: 0.2rem;
+}
+
+.button-contianer:hover{
+  cursor : pointer;
+}
+
+.form-control{
+  position: relative;
+}
+
+
+h5{
+  /* border: 0.2rem solid blue; */
+  position: absolute;
+  right: 12.7rem;
+  bottom: 1rem;
+  color: red;
+}
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -13,20 +108,7 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
 
-.App-link {
-  color: #61dafb;
-}
 
 @keyframes App-logo-spin {
   from {
