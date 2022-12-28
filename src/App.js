@@ -13,13 +13,13 @@ const appReducer = (state, action) => {
       return {
         ...state ,
         todo : action.payload ,
-        id : uuidv4()
       }
     }
     case "addTodo": {
       return {
         ...state,
-        todos: [...state.todos , action.payload],
+        todos: [...state.todos , action.payload.todo],
+        id: [...state.id , uuidv4()],
         todo : ""
       }
     }
@@ -30,7 +30,6 @@ const appReducer = (state, action) => {
       return state;
     }
   }
-  
 };
 
 const initState = {
@@ -43,12 +42,12 @@ function App() {
 
   const [state, dispatch] = useReducer(appReducer, initState);
 
-  const { todo, todos , id} = state;
+  const { todo, todos, id} = state;
   
 
   const Addtodo = (e) => {
     e.preventDefault();
-    dispatch({ type: "addTodo", payload : todo  });
+    dispatch({ type: "addTodo", payload :  {todo , id }  });
   };
 
   return (

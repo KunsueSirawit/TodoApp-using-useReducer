@@ -5,8 +5,8 @@ import { RiDeleteBin5Line } from "react-icons/ri";
 
 const Todolist = ({ items }) => {
 
-   const dispatch  = useContext(Context)
-
+  const dispatch  = useContext(Context)
+  console.log(items.todos)
   return (
     <>
       {(items.todos).map((item,index) => {
@@ -15,7 +15,7 @@ const Todolist = ({ items }) => {
             <h3> {item}</h3>
             <div className="button-contianer">
               {/* <h3>{item.id}</h3> */}
-              <RiDeleteBin5Line onClick={()=> dispatch ({ type : 'delete' , payload : item.id})}> Delete </RiDeleteBin5Line>
+              <RiDeleteBin5Line onClick={()=> dispatch({ type : 'delete' , payload : item.id})}> Delete </RiDeleteBin5Line>
             </div>
           </div>
         );
