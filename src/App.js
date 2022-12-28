@@ -2,7 +2,6 @@ import "./App.css";
 import { createContext, useReducer } from "react";
 import Todolist from "./component/Todolist";
 import Status from "./component/Status";
-import { v4 as uuidv4 } from "uuid";
 import Hole from "./component/Hole";
 
 export const Context = createContext();
@@ -21,22 +20,22 @@ const appReducer = (state, action) => {
           ...state,
           todos: [...state.todos],
           todo: "",
-          showstatus : true,
-          showmassege : 'Add Todo...',
+          showstatus: true,
+          showmassege: "Add Todo...",
         };
       } else {
         return {
           ...state,
           todos: [...state.todos, action.payload],
           todo: "",
-          showstatus : false,
+          showstatus: false,
         };
       }
     }
     case "statustimeout": {
       return {
         ...state,
-        showstatus : false
+        showstatus: false,
       };
     }
     case "delete": {
@@ -58,7 +57,7 @@ const initState = {
   todo: "",
   todos: [],
   showstatus: false,
-  showmassege:''
+  showmassege: "",
 };
 
 function App() {
@@ -75,7 +74,7 @@ function App() {
     <Context.Provider value={dispatch}>
       <section className="Containner">
         <span className="hole-container">
-          <Hole/>
+          <Hole />
         </span>
         <h1> Todos App </h1>
         <form onSubmit={Addtodo}>
@@ -91,7 +90,7 @@ function App() {
             <button type="submit"> + </button>
           </div>
         </form>
-        <section >
+        <section>
           <Todolist items={state} />
         </section>
       </section>
