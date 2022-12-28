@@ -1,22 +1,15 @@
 import { useEffect } from "react"
+import { Context } from "../App";
+import { useContext } from "react";
 
-const Statuscomponent = ({show , msg , setStatus,list}) => {
+const Status = ({ items }) => {
     
-    useEffect(()=>{
-        const timeOut = setTimeout(()=>{
-            setStatus({show:false,msg:''})
-        },1000)
-        return()=> clearTimeout(timeOut)
-    },[list])
-    
+    const { dispatch  , todos } = useContext(Context)
+
     return(
-        
-        <h5>  {msg} </h5>
+        <h5>  {items.showmassege} </h5>
     )
-    
-    
-
 
 }
 
-export default Statuscomponent
+export default Status

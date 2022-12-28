@@ -6,27 +6,50 @@
 
 body{
   font-family: 'Nunito', sans-serif;
-  background-color: rgb(201, 234, 248);
-  height: 90vh;
+  background-color: rgb(248, 230, 206);
+  height: 70vh;
+  
 }
 
 .Containner {
-  background-color: rgb(240, 248, 248);
+  background-color: rgb(252, 249, 243);
   text-align: center;
   text-justify: center;
   height: 14.2em;
   width: 30rem;
   margin: 5rem auto;
-  box-shadow: 0rem 0.2rem 1px rgb(234, 244, 247);
+  box-shadow: 0rem 0.2rem 1px rgb(247, 242, 234);
   border-radius: .2em;
+  position: relative;
 }
+
+.hole-container{
+  display: flex;
+  flex-direction: row;
+  /* margin-top: 2rem; */
+  gap: 1rem;
+  /* position: relative; */
+  position: absolute;
+  right: 1.1rem;
+  top: 0.28rem
+}
+
+.hole{
+  background-color:  rgb(252, 249, 243);
+  box-shadow: 0.02rem -0.03rem 0.3px rgb(255, 246, 233);
+  width: .7rem;
+  height: .7rem;
+  border-radius: 100%;
+}
+
+
 
 h1{
   font-size: 4rem;
-  color:rgb(222, 232, 248);
-  text-shadow: 2px 2px 2px #ced6ed;
+  color:rgb(255, 251, 235);
+  text-shadow: 2px 2px 0.5px #edecce;
   padding-top: 0.8rem;
-  background-image: linear-gradient(306deg ,rgb(0, 140, 255) , rgb(79, 223, 255));
+  background-image: linear-gradient(306deg ,rgb(214, 144, 38) , rgb(245, 171, 44));
 }
 
 .todo-list{
@@ -35,11 +58,13 @@ h1{
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  /* border: 1rem solid red;
+  border-bottom: 1rem; */
   padding: .09rem 5rem;
-  background-color:  rgb(240, 248, 248);
-  box-shadow: 0rem 0.2rem 0.4px rgb(192, 220, 229);
+  background-color:  rgb(255, 250, 241);
+  box-shadow: 0rem 0.2rem 0.4px rgba(198, 132, 25, 0.704);
   height: 6em;
-  margin-bottom: -1.7em;
+  margin-bottom: -1.8em;
   color: #3a3a3a;
 }
 
@@ -47,7 +72,7 @@ h1{
 .todo-list:hover{
   transition: transform .05s;
   transform: scale(1.05);
-  border-color: rgb(237, 223, 72);
+  border-color: rgb(232, 186, 18);
   border-left-style: solid;
   border-width: 1.2em;
 }
@@ -75,7 +100,7 @@ button{
 
 button:hover{
   cursor : pointer;
-  background-color: rgb(255, 242, 127);
+  background-color: rgb(255, 200, 59);
   color: rgb(0, 0, 0);
 }
 
@@ -102,19 +127,4 @@ h5{
 }
 
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
-
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
