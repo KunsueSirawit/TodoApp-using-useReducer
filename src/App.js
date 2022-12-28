@@ -1,30 +1,34 @@
 import "./App.css";
 import { createContext, useReducer } from "react";
 import Todolist from "./component/Todolist";
-import { v4 as uuidv4 } from 'uuid';
+import Status from "./component/Status";
+import { v4 as uuidv4 } from "uuid";
 
 export const Context = createContext();
 
 const appReducer = (state, action) => {
-
-
   switch (action.type) {
-    case "setTodo" : {
+    case "setTodo": {
       return {
-        ...state ,
-        todo : action.payload ,
-      }
+        ...state,
+        todo: action.payload,
+      };
     }
     case "addTodo": {
       return {
         ...state,
-        todos: [...state.todos , action.payload.todo],
-        id: [...state.id , uuidv4()],
-        todo : ""
-      }
+        todos: [...state.todos, action.payload],
+        todo: "",
+      };
     }
     case "delete": {
-      return state.filter((item) => item.id !== action.payload);
+      const newtodos = [...state.todos];
+
+      newtodos.splice(action.payload, 1);
+      return {
+        ...state,
+        todos: newtodos,
+      };
     }
     default: {
       return state;
@@ -33,21 +37,18 @@ const appReducer = (state, action) => {
 };
 
 const initState = {
-  todo: '',
+  todo: "",
   todos: [],
-  id: []
-}
+};
 
 function App() {
-
   const [state, dispatch] = useReducer(appReducer, initState);
 
-  const { todo, todos, id} = state;
-  
+  const { todo, todos } = state;
 
   const Addtodo = (e) => {
     e.preventDefault();
-    dispatch({ type: "addTodo", payload :  {todo , id }  });
+    dispatch({ type: "addTodo", payload: todo });
   };
 
   return (
@@ -56,8 +57,15 @@ function App() {
         <h1> Todos App </h1>
         <form onSubmit={Addtodo}>
           <div className="form-control">
-          <input type="text" value={todo} onChange={ (e) => dispatch({ type : 'setTodo' , payload : e.target.value})}/>
-          <button type="submit"> + </button>
+            
+            <input
+              type="text"
+              value={todo}
+              onChange={(e) =>
+                dispatch({ type: "setTodo", payload: e.target.value })
+              }
+            />
+            <button type="submit"> + </button>
           </div>
         </form>
         <section className="qwe">

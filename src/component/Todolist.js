@@ -12,10 +12,10 @@ const Todolist = ({ items }) => {
       {(items.todos).map((item,index) => {
         return (
           <div key={index} className="todo-list">
+            {/* <h3> {index}</h3> */}
             <h3> {item}</h3>
             <div className="button-contianer">
-              {/* <h3>{item.id}</h3> */}
-              <RiDeleteBin5Line onClick={()=> dispatch({ type : 'delete' , payload : item.id})}> Delete </RiDeleteBin5Line>
+              <RiDeleteBin5Line onClick={()=> dispatch({ type : 'delete' , payload : index})}> Delete </RiDeleteBin5Line>
             </div>
           </div>
         );
